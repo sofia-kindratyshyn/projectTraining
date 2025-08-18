@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@theme {
+  --color-base-primary: #11181C;
+  --color-base-secondary: #333F46;
+  --color-base-primary-disabled: #617079;
+  --color-overlay-w-primary: #FFFFFF;
+}
