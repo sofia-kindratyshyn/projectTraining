@@ -7,3 +7,14 @@
   --color-base-primary-disabled: #617079;
   --color-overlay-w-primary: #FFFFFF;
 }
+.btn {
+  @apply font-medium rounded-2xl py-[12px] px-[42px] cursor-pointer;
+}
+
+.begie{
+  @apply rounded-2xl pr-[5px] pl-[5px] pb-[2px] pt-[2px] border-[1px] cursor-pointer;  
+}
+
+.btn-animation{
+  @apply transition-all duration-200 ease-in-out hover:scale-110
+}
