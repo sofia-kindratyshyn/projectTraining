@@ -3,7 +3,7 @@ export default function Buttons() {
     <>
       <div className="flex flex-col justify-center items-center w-screen p-6">
         <h2 className="text-4xl mb-5">Buttons</h2>
-        <div className="flex gap-3.5 mb-10">
+        <div className="flex gap-3.5 mb-10 flex-wrap">
           <button className="bg-[#0B64F4] btn-animation text-white btn hover:bg-[#0950C3]">
             Primary
           </button>
