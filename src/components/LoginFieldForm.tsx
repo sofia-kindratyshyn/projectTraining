@@ -18,14 +18,14 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Label } from "./ui/label";
+import { FormField } from "./FormField";
 
 type Errors = {
   email?: string;
   password?: string;
 };
 
-export function Login() {
+export default function LoginFieldForm() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
@@ -57,22 +57,21 @@ export function Login() {
 
       <form onSubmit={handleSubmit}>
         <CardContent className="flex flex-col">
-          <Label className="mb-1.5" htmlFor="email">
-            Email
-          </Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="m@example.com"
-            value={email}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            className={[
-              "border rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none",
-              errors.email ? "border-red-500" : "border-gray-300",
-            ].join(" ")}
-          />
+          <FormField label="Email" error={errors.email}>
+            <Input
+              id="email"
+              type="email"
+              placeholder="m@example.com"
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              className={[
+                "border rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none",
+                errors.email ? "border-red-500" : "border-gray-300",
+              ].join(" ")}
+            />
+          </FormField>
           <div className="flex justify-end">
             <Dialog>
               <DialogTrigger asChild>
@@ -95,21 +94,20 @@ export function Login() {
               </DialogContent>
             </Dialog>
           </div>
-          <Label className="mb-1.5" htmlFor="password">
-            Password
-          </Label>
-          <Input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-            className={[
-              "border rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none",
-              errors.password ? "border-red-500" : "border-gray-300",
-            ].join(" ")}
-          />
+          <FormField label="Password" error={errors.password}>
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+              className={[
+                "border rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none",
+                errors.password ? "border-red-500" : "border-gray-300",
+              ].join(" ")}
+            />
+          </FormField>
         </CardContent>
 
         <CardFooter className="flex-col gap-2 mt-3.5">

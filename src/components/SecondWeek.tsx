@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Register } from "./Register";
 import { Login } from "./Login";
+import FormFieldForms from "./FormFieldForms";
 
 function SecondWeek() {
   return (
@@ -10,6 +11,11 @@ function SecondWeek() {
       <Button>Click me</Button>
 
       <Input className="max-w-xs" placeholder="Type something…" />
+
+      <h2 className="text-2xl">
+        Форми, використовуючи багаторазовий елемент FormField
+      </h2>
+      <FormFieldForms />
 
       <nav className="flex flex-col items-center p-6">
         <ul className="flex gap-4 text-2xl">
