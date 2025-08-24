@@ -73,6 +73,9 @@ export function Login() {
               errors.email ? "border-red-500" : "border-gray-300",
             ].join(" ")}
           />
+          {errors.email && (
+            <span className="text-red-500 text-sm mt-1">{errors.email}</span>
+          )}
           <div className="flex justify-end">
             <Dialog>
               <DialogTrigger asChild>
@@ -110,6 +113,9 @@ export function Login() {
               errors.password ? "border-red-500" : "border-gray-300",
             ].join(" ")}
           />
+          {errors.password && (
+            <span className="text-red-500 text-sm mt-1">{errors.password}</span>
+          )}
         </CardContent>
 
         <CardFooter className="flex-col gap-2 mt-3.5">

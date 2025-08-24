@@ -54,13 +54,12 @@ export function Register() {
           <Button variant="link">Sign in</Button>
         </CardAction>
       </CardHeader>
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        noValidate
-        className="flex flex-col gap-3.5"
-      >
-        <CardContent>
+      <CardContent>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className="flex flex-col gap-3.5"
+        >
           <div className="flex flex-col gap-4">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -74,6 +73,11 @@ export function Register() {
                 errors.name ? "border-red-500" : "border-gray-300",
               ].join(" ")}
             />
+            {errors.name && (
+              <p id="name-error" role="alert" className="text-red-500 text-sm">
+                {errors.name.message}
+              </p>
+            )}
 
             <Label htmlFor="email">Email</Label>
             <Input
@@ -93,6 +97,11 @@ export function Register() {
                 errors.email ? "border-red-500" : "border-gray-300",
               ].join(" ")}
             />
+            {errors.email && (
+              <p id="name-error" role="alert" className="text-red-500 text-sm">
+                {errors.email.message}
+              </p>
+            )}
 
             <Label htmlFor="password">Password</Label>
             <Input
@@ -109,18 +118,23 @@ export function Register() {
                 errors.password ? "border-red-500" : "border-gray-300",
               ].join(" ")}
             />
+            {errors.password && (
+              <p id="name-error" role="alert" className="text-red-500 text-sm">
+                {errors.password.message}
+              </p>
+            )}
           </div>
-        </CardContent>
 
-        <CardFooter className="flex-col gap-2">
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? "Registering..." : "Register"}
-          </Button>
-          <Button variant="outline" className="w-full" type="button">
-            Register with Google
-          </Button>
-        </CardFooter>
-      </form>
+          <CardFooter className="flex-col gap-2">
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? "Registering..." : "Register"}
+            </Button>
+            <Button variant="outline" className="w-full" type="button">
+              Register with Google
+            </Button>
+          </CardFooter>
+        </form>
+      </CardContent>
     </Card>
   );
 }
